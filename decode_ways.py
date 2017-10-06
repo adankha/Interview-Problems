@@ -18,7 +18,7 @@
 
     Explanation:
 
-        Here we use Dynamic Programming to determine this. Why DP?
+        Here we use Dynamic Programming to determine this. 
 
         Well, we know that there are 26 letters in the alpabet.
         With that said, we know that the letters A-Z can only map to digits that are 1 or 2 digits long.
@@ -45,6 +45,9 @@
 
         Note: Used leetcode explanations intially for some guidance as far as how to do this.
         So I cheated kinda, but I understand it fully! =)
+        
+        Why is DP beneficial here? Well, we are essentially building our number of decode ways from the previous.
+        Anytime you build from the previous in the fashion as described it usually smells dynamic programming...
 
 """
 
