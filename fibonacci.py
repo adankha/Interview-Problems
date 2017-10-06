@@ -15,6 +15,16 @@ The following program demonstrates how to solve Fibonacci in two different ways:
     Note: I show 2 ways of using DP. One returns the entire array / sequence of fibonacci numbers
     the other returns the fibonacci number user requests. (Space complexity is lesser with the latter than former).
 
+
+
+    Explanation of solution:
+        In the DP solution, since our base cases are that f_0 = 0, f_1 = 1 we can then program this very easily.
+        The definition of fibonacci is simple. Take the last 2 numbers in the sequence and add them up to get the current
+        value of the sequence number you are sitting on.
+
+        So f_2 is simply  f_1 + f_0... You do this until you've reached the end of the sequence.
+        (Whatever you set n to be).
+
     Note: Fibonacci is a perfect example of using Dynamic Programming!!
 
     Used Python 3.6.2
