@@ -64,10 +64,7 @@
         So if we are trying to evaluate if a number is happy, we want to have a global dictionary that holds all of our
         previous results so that we don't do the same calculations. <--- This is memoization!
 
-
-        ...
-        n by 10^# of iterations
-
+        p.s. local_dict must get reset after each number we check as its a local dictionary.
 
 """
 from copy import deepcopy
