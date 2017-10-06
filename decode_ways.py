@@ -16,7 +16,7 @@
         The number of ways decoding "12" is 2.
 
 
-    Explanation:
+    Explanation of solution:
 
         Here we use Dynamic Programming to determine this. 
 
@@ -43,7 +43,7 @@
         This can also be done just by using a few variables as opposed to using an array...
         That will help significantly with space complexity. (See num_decodings1(s))
 
-        Note: Used leetcode explanations intially for some guidance as far as how to do this.
+        Note: Used leetcode explanations initially for some guidance as far as how to do this.
         So I cheated kinda, but I understand it fully! =)
         
         Why is DP beneficial here? Well, we are essentially building our number of decode ways from the previous.
