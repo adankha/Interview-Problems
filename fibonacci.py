@@ -40,7 +40,6 @@ def dp1_fibonacci(n):
     result = prev1 + prev2
 
     for idx in range(2, n+1):
-
         result = prev1 + prev2
         prev1 = prev2
         prev2 = result
