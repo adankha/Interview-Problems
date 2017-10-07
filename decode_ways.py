@@ -22,7 +22,7 @@
 
         Well, we know that there are 26 letters in the alpabet.
         With that said, we know that the letters A-Z can only map to digits that are 1 or 2 digits long.
-        i.e.  A -> 1 and Z -> 26. This is very important for implentation!!!!
+        i.e.  A -> 1 and Z -> 26. This is very important for implementation!!!!
 
         Why is that important?
 
@@ -59,8 +59,6 @@ def num_decodings1(s):
     if len(s) == 1:
         return 1
 
-    dp = [0] * (len(s) + 1)
-
     prev1 = 1
     prev2 = 1
     result = 0
@@ -75,13 +73,11 @@ def num_decodings1(s):
 
         if 1 <= one_digit <= 9:
             result += prev1
-            dp[idx] += dp[idx - 1]
         if 10 <= two_digit <= 26:
             result += prev2
-            dp[idx] += dp[idx - 2]
 
-        prev1 = prev2
-        prev2 = result
+        prev2 = prev1
+        prev1 = result
 
     return result
 
