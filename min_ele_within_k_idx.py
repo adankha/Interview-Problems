@@ -42,7 +42,7 @@
     7    [17] : [1, 1, 1]
     8    [18] : [17, 1, 1]
     9    [5]  : [18, 17, 1]
-    10   [9]  : [5, 18, 17]
+    10   [9]  : [5, 5, 5]
 
     Notice the pattern? For our current evaluated index, When k = 1, it has to be the number next to our evaluated index
     When k = 2, we take whatever the min is of our previous index at k = 1
@@ -54,11 +54,39 @@
 
 
 # TODO Finish algo
+# TODO: algo finished, but not clean at all :P ...
 def create_knapsack(arr, k):
 
     knapsack = []
 
-    return knapsack
+    for idx in range(0, len(arr)):
+        knapsack.append([arr[idx]])
+
+    for l in knapsack:
+        for i in range(k):
+            l.append(None)
+
+    for row in range(1, len(knapsack)):
+
+        val = None
+        for col in range(k):
+
+            if knapsack[row-1][col] is not None:
+                val = knapsack[row - 1][col]
+                if col == 0:
+                    next_to_val = knapsack[row - 1][col]
+                knapsack[row][col + 1] = next_to_val if next_to_val < knapsack[row - 1][col] else knapsack[row - 1][col]
+            else:
+                knapsack[row][col + 1] = val
+
+    result = []
+
+    for row in knapsack:
+        result.append(row[-1])
+
+
+
+    return result
 
 
 def main():
@@ -72,4 +100,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
