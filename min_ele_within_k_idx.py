@@ -3,7 +3,7 @@
 
     What does that mean?
 
-    Lets maybe look at an example...
+    Lets maybe look at an example that I made up...
 
     Let k = 3
 
@@ -50,6 +50,25 @@
 
     When finished, our last elements of each row holds the min.
 
+    What's the solution consist of?
+
+    Well, I build a knapsack... I have a list of lists.
+
+    Each lists first element contains the element of the original array.
+    The rest of the elements are initialized to "None" as placeholders for my k values.
+
+    What I do is I build off of the first list and then storing the previous lists k values for when k = 1, 2, 3, ...
+    However, there is one twist. We need to check if the previous number itself (so the one stationed at index 0) is
+    the new minimum. If it is, we use that as opposed to our knapsack row of our previous.
+
+    Example from above:
+
+    3    [12] : [8, 7, 6]
+    4    [3]  : [12, 8, 7]
+    5    [2]  : [3, 3, 3]
+
+    Here at index 5, our new minimum is 3 so we need to make sure that 3 is held across the board and not 12 and 8.
+
 """
 
 
@@ -83,8 +102,6 @@ def create_knapsack(arr, k):
 
     for row in knapsack:
         result.append(row[-1])
-
-
 
     return result
 
