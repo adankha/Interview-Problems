@@ -106,7 +106,7 @@ def main():
     global_dict = {}
     happy_list = []
 
-    # Not using Memoization
+    # Using Memoization
     start = time.time() * 1000
     for idx in range(1, int(user_input)):
 
@@ -125,7 +125,7 @@ def main():
     happy_list.clear()
     global_dict.clear()
 
-    # Using Memoization
+    # Not using Memoization
     start = time.time() * 1000
     for idx in range(1, int(user_input)):
         result = is_happy(idx, local_dict, global_dict)
