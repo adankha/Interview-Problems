@@ -8,7 +8,8 @@ def method_4(n):
     Step 2: Use prime number to find all its factors until you reach n
     Step 3: Add all factors into a not_prime dictionary
     Step 4: Check if number not in dictionary, if it is, then we know it is not a prime number, no need to check
-    Step 5: Discard from set
+    Step 5: Discard from set.
+    Iterate through all numbers up to n, then done!
 
     Load time: set requires O(n)
     For-loop requires O(n)
