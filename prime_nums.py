@@ -41,7 +41,6 @@ def method_4(n):
                     not_p_dict[not_prime] = 1
                 not_prime += i
 
-
     return list(res)
 
 
@@ -87,6 +86,7 @@ def method_3(n):
             res.append(i)
             prime_dict[i] = True
     return res
+
 
 def method_2(n):
     """
@@ -161,22 +161,34 @@ def method_1(n):
 
 def main():
 
-    user_input = input('Enter a number to find primes from 2-n: ')
+    user_input = int(input('Enter a number to find primes from 2-n: '))
 
+    # Fourth Place
+    # Test with primes to 25k numbers: breaks
+    st = time.time()
+    res = method_1(user_input)
+    et = time.time()
+    print('\nMethod_1 (recursion)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
 
+    # Third Place
+    # Test with primes to 25k numbers: 1560 ms
+    st = time.time()
+    res = method_2(user_input)
+    et = time.time()
+    print('\nMethod_2 (iterative)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
 
     # Second Place
     # Test with primes to 25k numbers: 170 ms
     # Test with primes up to 250k numbers: 10,719 ms
     st = time.time()
-    res = method_3(int(user_input))
+    res = method_3(user_input)
     et = time.time()
     print('\nMethod_3 (Lazy Sieve of Eratosthenes)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
 
-    #First Place
+    # First Place
     # Test with primes up to 250k numbers: 226 ms
     st = time.time()
-    res = method_4(int(user_input))
+    res = method_4(user_input)
     et = time.time()
     print('\nMethod_4 (Non-Lazy Sieve of Eratosthenes)\nTime results: ', (et - st) * 1000, 'ms\nList:', res)
 
