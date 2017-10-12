@@ -3,11 +3,44 @@ import time
 
 def method_4(n):
     """
-    TODO::::
-    Non-Lazy Sieve of Eratosthenes APPROACH
-    :param n:
-    :return:
+    Non-Lazy Sieve of Eratosthenes Algorithm APPROACH
+    Step 1: Find a prime number
+    Step 2: Use prime number to find all its factors until you reach n
+    Step 3: Add all factors into a not_prime dictionary
+    Step 4: Check if number not in dictionary, if it is, then we know it is not a prime number, no need to check
+    Step 5: Discard from set
+
+    Load time: set requires O(n)
+    For-loop requires O(n)
+    Assuming loop up time for dictionary is O(1)
+    While loop requires us to loop up to n
+
+    Since we have a for loop and a while loop, we don't assume O(n^2).
+    Observe that the while loop "helps" the for loop as it is pruning all the non-primes
+    So it won't need to check for those numbers.
+
+    Runtime analysis for the for-while loops O(n) amortized.
+
+    :param n: Find number of primes from 2 to n
+    :return: return list of all primes up to n
     """
+
+    res = set(i for i in range(2, n+1))
+    if n < 2:
+        return res
+    not_p_dict = {}
+    for i in range(2, n):
+        if i not in not_p_dict.keys():
+            not_prime = i + i
+            res.discard(not_prime)
+            not_p_dict[not_prime] = 1
+            while not_prime < n+1:
+                not_prime += i
+                not_p_dict[not_prime] = 1
+                res.discard(not_prime)
+
+    return list(res)
+
 
 def method_3(n):
     """
@@ -52,46 +85,7 @@ def method_3(n):
             prime_dict[i] = True
     return res
 
-
-def is_prime_m2helper(n, i):
-    """
-    RECURSION HELPER
-
-    Recursive helper for finding all primes
-    :param n: Holds the current value we are evaluating
-    :param i: i holds the current value we are evaluating outside the recursive call (the number we check if is prime)
-    :return: boolean value if it is prime or not
-    """
-    if n == i:
-        return True
-    if i % n == 0:
-        return False
-
-    return is_prime_m2helper(n + 1, i)
-
-
 def method_2(n):
-    """
-    RECURSION APPROACH
-
-    Same idea as method 1 here but we do it recursively.
-    We create an outer for-loop to test all prime numbers. So our outer loop, i is our "check if i is prime" variable
-    The recursive call is our inner loop for "test if i is not modulos of any numbers up to i. If it is, not prime!
-    :param n: Find all primes up to n
-    :return: return list of all primes
-    """
-
-    res = []
-    if n < 2:
-        return res
-
-    for i in range(2, n):
-        if is_prime_m2helper(2, i):
-            res.append(i)
-    return res
-
-
-def method_1(n):
     """
     ITERATIVE APPROACH
 
@@ -124,30 +118,78 @@ def method_1(n):
     return res
 
 
+def is_prime_m2helper(n, i):
+    """
+    RECURSION HELPER
+
+    Recursive helper for finding all primes
+    :param n: Holds the current value we are evaluating
+    :param i: i holds the current value we are evaluating outside the recursive call (the number we check if is prime)
+    :return: boolean value if it is prime or not
+    """
+    if n == i:
+        return True
+    if i % n == 0:
+        return False
+
+    return is_prime_m2helper(n + 1, i)
+
+
+def method_1(n):
+    """
+    RECURSION APPROACH
+
+    Same idea as method 1 here but we do it recursively.
+    We create an outer for-loop to test all prime numbers. So our outer loop, i is our "check if i is prime" variable
+    The recursive call is our inner loop for "test if i is not modulos of any numbers up to i. If it is, not prime!
+    :param n: Find all primes up to n
+    :return: return list of all primes
+    """
+
+    res = []
+    if n < 2:
+        return res
+
+    for i in range(2, n):
+        if is_prime_m2helper(2, i):
+            res.append(i)
+    return res
+
+
 def main():
 
     user_input = input('Enter a number to find primes from 2-n: ')
 
-    # Second Place
-    # Test with primes to 25k numbers: 1560 ms
+
+
+    # Fourth Place
+    # Test with primes to 25k numbers: breaks
     st = time.time()
     res = method_1(int(user_input))
     et = time.time()
-    print('\nMethod_1 (iterative)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
+    print('\nMethod_1 (recursion)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
 
     # Third Place
-    # Test with primes to 25k numbers: breaks
+    # Test with primes to 25k numbers: 1560 ms
     st = time.time()
     res = method_2(int(user_input))
     et = time.time()
-    print('\nMethod_2 (recursion)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
+    print('\nMethod_2 (iterative)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
 
-    # First Place
+    # Second Place
     # Test with primes to 25k numbers: 170 ms
+    # Test with primes up to 250k numbers: 10,719 ms
     st = time.time()
     res = method_3(int(user_input))
     et = time.time()
     print('\nMethod_3 (Lazy Sieve of Eratosthenes)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
+
+    #First Place
+    # Test with primes up to 250k numbers: 300 ms
+    st = time.time()
+    res = method_4(int(user_input))
+    et = time.time()
+    print('\nMethod_4 (Non-Lazy Sieve of Eratosthenes)\nTime results: ', (et - st) * 1000, 'ms\nList:', res)
 
 
 if __name__ == '__main__':
