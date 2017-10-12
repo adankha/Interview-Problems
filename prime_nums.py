@@ -36,9 +36,11 @@ def method_4(n):
             res.discard(not_prime)
             not_p_dict[not_prime] = 1
             while not_prime < n+1:
+                if not_prime not in not_p_dict.keys():
+                    res.remove(not_prime)
+                    not_p_dict[not_prime] = 1
                 not_prime += i
-                not_p_dict[not_prime] = 1
-                res.discard(not_prime)
+
 
     return list(res)
 
@@ -163,20 +165,6 @@ def main():
 
 
 
-    # Fourth Place
-    # Test with primes to 25k numbers: breaks
-    st = time.time()
-    res = method_1(int(user_input))
-    et = time.time()
-    print('\nMethod_1 (recursion)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
-
-    # Third Place
-    # Test with primes to 25k numbers: 1560 ms
-    st = time.time()
-    res = method_2(int(user_input))
-    et = time.time()
-    print('\nMethod_2 (iterative)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
-
     # Second Place
     # Test with primes to 25k numbers: 170 ms
     # Test with primes up to 250k numbers: 10,719 ms
@@ -186,7 +174,7 @@ def main():
     print('\nMethod_3 (Lazy Sieve of Eratosthenes)\nTime results: ', (et-st)*1000, 'ms\nList:', res)
 
     #First Place
-    # Test with primes up to 250k numbers: 300 ms
+    # Test with primes up to 250k numbers: 226 ms
     st = time.time()
     res = method_4(int(user_input))
     et = time.time()
