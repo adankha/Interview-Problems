@@ -32,17 +32,17 @@
     key(our value): k vals[1-k]
 
     idx:  val:  k =  1,    2,   3
-    0    [6]  : [none, none, none]
-    1    [7]  : [6, 6, 6]
-    2    [8]  : [7, 6, 6]
-    3    [12] : [8, 7, 6]
-    4    [3]  : [12, 8, 7]
-    5    [2]  : [3, 3, 3]
-    6    [1]  : [2, 2, 2]
-    7    [17] : [1, 1, 1]
-    8    [18] : [17, 1, 1]
-    9    [5]  : [18, 17, 1]
-    10   [9]  : [5, 5, 5]
+    [0]    6  : [none, none, none]
+    [1]    7  : [6, 6, 6]
+    [2]    8  : [7, 6, 6]
+    [3]    12 : [8, 7, 6]
+    [4]    3  : [12, 8, 7]
+    [5]    2  : [3, 3, 3]
+    [6]    1  : [2, 2, 2]
+    [7]    17 : [1, 1, 1]
+    [8]    18 : [17, 1, 1]
+    [9]    5  : [18, 17, 1]
+    [10]   9  : [5, 5, 5]
 
     Notice the pattern? For our current evaluated index, When k = 1, it has to be the number next to our evaluated index
     When k = 2, we take whatever the min is of our previous index at k = 1
@@ -75,6 +75,9 @@
 # TODO Finish algo
 # TODO: algo finished, but not clean at all :P ...
 def create_knapsack(arr, k):
+
+    if k <= 0:
+        return []
 
     knapsack = []
 
@@ -109,7 +112,9 @@ def create_knapsack(arr, k):
 def main():
 
     arr = [6, 7, 8, 12, 3, 2, 1, 17, 18, 5, 9]
-    k = 3
+    k = 1
+
+    #TODO: Implement more test cases
 
     result = create_knapsack(arr, k)
     print('The Knapsack Result: ', result)
