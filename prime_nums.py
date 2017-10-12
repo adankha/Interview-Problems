@@ -26,7 +26,7 @@ def method_4(n):
     :return: return list of all primes up to n
     """
 
-    res = set(i for i in range(2, n+1))
+    res = set(i for i in range(2, n))
     if n < 2:
         return res
     not_p_dict = {}
@@ -35,7 +35,7 @@ def method_4(n):
             not_prime = i + i
             res.discard(not_prime)
             not_p_dict[not_prime] = 1
-            while not_prime < n+1:
+            while not_prime < n:
                 if not_prime not in not_p_dict.keys():
                     res.remove(not_prime)
                     not_p_dict[not_prime] = 1
