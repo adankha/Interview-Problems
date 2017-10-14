@@ -190,7 +190,7 @@ def main():
     st = time.time()
     res = method_4(user_input)
     et = time.time()
-    print('\nMethod_4 (Non-Lazy Sieve of Eratosthenes)\nTime results: ', (et - st) * 1000, 'ms\nList:', res)
+    print('\nMethod_4 (Actual Sieve of Eratosthenes Algorithm)\nTime results: ', (et - st) * 1000, 'ms\nList:', res)
 
 
 if __name__ == '__main__':
