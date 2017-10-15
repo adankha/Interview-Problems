@@ -8,14 +8,14 @@ def remove_unsorted(head):
         We have 3 pointers, a previous, current, and next.
         The variable names hold exactly what you think they hold.
         Essentially what we do is we have a library which holds numbers in which we've discovered.
-        If we ever come across a number we've came across (and it's in our dictionary), we take the prev.next pointer
+        If we ever come across a number in our dictionary/library, we take the prev.next pointer
         and point it to the next node, skipping over the current.
 
         Note: Be careful with how you assign the previous. If we did not find a key, we set prev to current.
         If we found a key, we set previous to next node.
 
-        Since our loop terminates without current ever being the last element, make sure you check if the element is at
-        the end of the list.
+        Since our loop terminates without the current node ever being the last element, make sure you check if
+        the element is at the end of the list.
 
     :param head: Head of list
     :return: Nada!
