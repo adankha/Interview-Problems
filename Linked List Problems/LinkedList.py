@@ -34,12 +34,16 @@ class LinkedList:
 
     def print_list(self):
         tmp = self.head
+        s = ''
 
         if tmp is None:
             print('Empty List')
-            return
+            return 'Empty List'
 
         while tmp.next is not None:
             print(tmp.data, '-> ', end="")
+            s += str(tmp.data) + ' -> '
             tmp = tmp.next
         print(tmp.data)
+        s += str(tmp.data)
+        return s
