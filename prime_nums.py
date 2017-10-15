@@ -13,7 +13,7 @@ def method_4(n):
 
     Load time: set requires O(n)
     For-loop requires O(n)
-    Assuming loop up time for dictionary is O(1)
+    Assuming look up time for dictionary is O(1)
     While loop requires us to loop up to n
 
     Since we have a for loop and a while loop, we don't assume O(n^2).
