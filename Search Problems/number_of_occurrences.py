@@ -14,11 +14,11 @@ def num_occurrences(arr, target):
 
     first_occurrence = find_first(arr, target, 0, len(arr) - 1)
     if first_occurrence == -1:
-        return first_occurrence
+        return -1
 
     second_occurrence = find_second(arr, target, first_occurrence, len(arr) - 1)
     if second_occurrence == -1:
-        return second_occurrence
+        return 1
 
     return second_occurrence - first_occurrence + 1
 
@@ -52,8 +52,9 @@ def find_second(arr, target, left, right):
 def main():
 
     empty_arr = []
-    even_arr = [-10, -8, -8, 3, 2, 5, 5, 5, 7, 11, 11, 12]
+    even_arr = [-10, -8, -8, 2, 3, 5, 5, 5, 7, 11, 11, 12]
     odd_arr = [-8, -8, 3, 1, 2, 4, 5]
+    extra_arr = [-10, -8, -8, 2, 3, 5, 5, 5, 5, 5, 5, 5]
     target = 5
 
     # TODO: Make unit tests for these =)
@@ -63,6 +64,8 @@ def main():
     print('Expected: 3', ' Actual: ', res2)
     res3 = num_occurrences(odd_arr, target)
     print('Expected: 1', ' Actual: ', res3)
+    res4 = num_occurrences(extra_arr, target)
+    print('Expected: 7', ' Actual: ', res4)
 
 
 if __name__ == '__main__':
