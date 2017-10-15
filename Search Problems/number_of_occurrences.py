@@ -2,6 +2,8 @@
     Count the number of occurrences of a specific target given a sorted array.
     Trivial Way: O(n)
     Optimal Way: O(log(n)) (Binary Search)
+    Goal: Find first occurrence of number, find last occurrence of number (Binary Search x2)
+    Subtract 2 indices + 1 to get the distance between the two points of indices
 """
 
 
