@@ -1,3 +1,7 @@
+"""
+    A simple file that has two classes: Node and LinkedList.
+    Used to help with interview problems / questions dealing with linked lists.
+"""
 
 
 class Node:
