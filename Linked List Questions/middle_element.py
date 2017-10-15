@@ -22,6 +22,34 @@ def find_middle(head):
     return iter1.data
 
 
+def remove_middle(head):
+
+    """
+    Finds the middle element of a linked list in log(n) run-time.
+    Same exact solution as find_middle.
+    However, now we must remove the element!
+    :return:  Middle element
+    """
+
+    if head is None:
+        return
+    prev_node = head
+    current_node = head
+    next_node = head
+    fast_node = head.next
+
+    while fast_node and fast_node.next:
+        prev_node = current_node
+        current_node = current_node.next
+        next_node = current_node.next
+        fast_node = fast_node.next.next
+
+    middle_elem = current_node.data
+    prev_node.next = next_node
+
+    return middle_elem
+
+
 def random_list():
     my_list = LinkedList()
     my_list.add(31)
@@ -44,6 +72,9 @@ def main():
 
     print('Finding middle element in O(log(n)) time.')
     print('Middle Element: ', find_middle(my_list.head), end="\n\n")
+
+    remove_middle(my_list.head)
+    my_list.print_list()
 
 
 if __name__ == '__main__':
