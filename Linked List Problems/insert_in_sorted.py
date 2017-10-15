@@ -18,10 +18,10 @@ def insert_num(the_list, num):
 
     if head is None:
         the_list.add(num)
-        return None
+        return True
     if num <= head.data:
         the_list.add(num)
-        return None
+        return True
 
     cur_node = head
     next_node = head.next
@@ -32,13 +32,13 @@ def insert_num(the_list, num):
         if next_node is not None and cur_node.data <= num <= next_node.data:
             cur_node.next = new_node
             new_node.next = next_node
-            return the_list
+            return True
         elif next_node is None and cur_node.data <= num:
             cur_node.next = new_node
-            return the_list
+            return True
         cur_node = cur_node.next
         next_node = next_node.next
-    return the_list
+    return False
 
 
 def main():
