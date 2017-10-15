@@ -1,7 +1,22 @@
 """
     PROBLEM: For each index, find the min element within k-indices prior to that index.
 
-    What does that mean?
+
+
+
+    Explanation/Solution:
+
+    Recurrence relation:
+    let arr[N] be the array of elements with N being the size.
+
+    Our recurrence relation:
+
+                {
+                | dp[0][k] => None for all k [pending on implementation]
+                | dp[1][k] => arr[0] for all k [since the first element has no smallest elements, it must be arr[0] ]
+    dp[i][k] =  | dp[i][1] => arr[i-1]  for all i > 0 [if k = 1, then it must be the element before current element]
+                | dp[i][k] => min(arr[i-1], dp[i-1][k-1]) for all k > 1 and i > 0
+                {
 
     Lets maybe look at an example that I made up...
 
