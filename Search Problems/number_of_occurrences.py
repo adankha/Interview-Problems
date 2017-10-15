@@ -25,7 +25,7 @@ def num_occurrences(arr, target):
 
 def find_first(arr, target, left, right):
 
-    if right >= left:
+    if left <= right:
         middle = int((left + right) / 2)
         if middle == 0 or arr[middle-1] < target == arr[middle]:
             return middle
@@ -38,7 +38,7 @@ def find_first(arr, target, left, right):
 
 def find_second(arr, target, left, right):
 
-    if right >= left:
+    if left <= right:
         middle = int((left + right) / 2)
         if middle == len(arr) - 1 or arr[middle + 1] > target == arr[middle]:
             return middle
@@ -56,6 +56,7 @@ def main():
     odd_arr = [-8, -8, 3, 1, 2, 4, 5]
     target = 5
 
+    # TODO: Make unit tests for these =)
     res1 = num_occurrences(empty_arr, target)
     print('Expected: -1', ' Actual: ', res1)
     res2 = num_occurrences(even_arr, target)
