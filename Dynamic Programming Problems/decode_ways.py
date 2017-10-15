@@ -17,6 +17,18 @@
 
 
     Explanation of solution:
+                {
+                | We assume that leading character is not 0
+                | dp[0] =>  1 base case
+    dp[i][k] =  | dp[1] =>  1 since dp[0]
+                | dp[i] =>  (dp[i-1] if 1 <= message[i - 1 : idx] <= 9)  + (dp[i-1] if 10 <= message[i - 2 : idx] <= 26)
+                |   for i > 1
+                {
+                recurrence relationship explained:
+                We are essentially looking at the previous digit. If it is between 1-9 inclusive
+                we have a valid encoding.
+                If we look at the last 2 digits, we check to see if it's between 10-26 inclusive.
+                We then take the values stored in those positions and add it to the current position.
 
         Here we use Dynamic Programming to determine this. 
 
