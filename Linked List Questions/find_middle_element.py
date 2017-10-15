@@ -45,5 +45,6 @@ def main():
     print('Finding middle element in O(log(n)) time.')
     print('Middle Element: ', find_middle(my_list.head), end="\n\n")
 
+
 if __name__ == '__main__':
     main()
