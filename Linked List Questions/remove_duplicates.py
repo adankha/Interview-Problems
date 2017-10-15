@@ -2,6 +2,24 @@ from LinkedList import *
 
 
 def remove_unsorted(head):
+    """
+    Removes all duplicate elements in an unsorted linked list.
+    Explanation:
+        We have 3 pointers, a previous, current, and next.
+        The variable names should make sense.
+        Essentially what we do is we have a library which holds numbers in which we've yet to discover.
+        If we ever come across a number we've came across (and it's in our dictionary), we take the prev.next pointer
+        and point it to the next node, skipping over the current.
+
+        Note: Be careful with how you assign the previous. If we did not find a key, we set prev to current.
+        If we found a key, we set previous to next node.
+
+        Since our loop terminates without current ever being the last element, make sure you check if the element is at
+        the end of the list.
+
+    :param head: Head of list
+    :return: Nada!
+    """
 
     if head is None:
         return
@@ -20,9 +38,7 @@ def remove_unsorted(head):
             prev_node.next = next_node
         curr_node = curr_node.next
 
-    if curr_node.data not in all_nodes.keys():
-        all_nodes[curr_node.data] = 1
-    else:
+    if curr_node.data in all_nodes.keys():
         prev_node.next = None
 
 
