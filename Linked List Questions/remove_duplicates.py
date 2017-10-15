@@ -6,8 +6,8 @@ def remove_unsorted(head):
     Removes all duplicate elements in an unsorted linked list.
     Explanation:
         We have 3 pointers, a previous, current, and next.
-        The variable names should make sense.
-        Essentially what we do is we have a library which holds numbers in which we've yet to discover.
+        The variable names hold exactly what you think they hold.
+        Essentially what we do is we have a library which holds numbers in which we've discovered.
         If we ever come across a number we've came across (and it's in our dictionary), we take the prev.next pointer
         and point it to the next node, skipping over the current.
 
