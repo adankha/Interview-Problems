@@ -79,9 +79,6 @@ def main():
     print('\n3-sum: ', three_sum(s))
     print('2-sum: ', two_sum(s, t))
 
-
-
-
 if __name__ == '__main__':
     main()
 
