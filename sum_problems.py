@@ -16,8 +16,10 @@ def two_sum(nums, target):
 
     for y in range(num_len):
         new_target = target - nums[y]
+        print(target, ' ', nums[y], ' ', target - nums[y])
         if new_target in dict_vals.keys() and dict_vals[new_target] != y:
-            return [y, dict_vals[new_target]]
+            print(new_target)
+            return [nums[y], target - nums[y]]
 
 
 def three_sum(nums):
@@ -75,10 +77,10 @@ def main():
     print('2-sum: ', two_sum(s, t))
 
     s = [-1, 0, 1, 2, -1, -4]
-    t = 3
+    t = -5
     print('\n3-sum: ', three_sum(s))
     print('2-sum: ', two_sum(s, t))
 
+
 if __name__ == '__main__':
     main()
-
