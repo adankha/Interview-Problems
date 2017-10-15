@@ -1,7 +1,7 @@
 import unittest
+
 from insert_in_sorted import *
-from middle_element import find_middle, remove_middle
-from LinkedList import *
+from middle_element import find_middle
 
 
 class LinkedListTests(unittest.TestCase):
