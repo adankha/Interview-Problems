@@ -1,8 +1,6 @@
 """
+
     PROBLEM: For each index, find the min element within k-indices prior to that index.
-
-
-
 
     Explanation/Solution:
 
@@ -129,7 +127,7 @@ def main():
     arr = [6, 7, 8, 12, 3, 2, 1, 17, 18, 5, 9]
     k = 1
 
-    #TODO: Implement more test cases
+    # TODO: Implement more test cases
 
     result = create_knapsack(arr, k)
     print('The Knapsack Result: ', result)
