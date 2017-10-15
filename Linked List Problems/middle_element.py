@@ -11,7 +11,7 @@ def find_middle(head):
     """
 
     if head is None:
-        return
+        return None
 
     iter1 = head
     iter2 = head.next

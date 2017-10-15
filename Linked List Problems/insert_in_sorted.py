@@ -18,10 +18,10 @@ def insert_num(the_list, num):
 
     if head is None:
         the_list.add(num)
-        return
+        return None
     if num <= head.data:
         the_list.add(num)
-        return
+        return None
 
     cur_node = head
     next_node = head.next
@@ -32,12 +32,13 @@ def insert_num(the_list, num):
         if next_node is not None and cur_node.data <= num <= next_node.data:
             cur_node.next = new_node
             new_node.next = next_node
-            return
+            return the_list
         elif next_node is None and cur_node.data <= num:
             cur_node.next = new_node
-            return
+            return the_list
         cur_node = cur_node.next
         next_node = next_node.next
+    return the_list
 
 
 def main():
@@ -48,10 +49,10 @@ def main():
 
     print('Sorted Linked List: ')
     sorted_list.print_list()
-    insert_num(sorted_list, -112)
-    insert_num(sorted_list, 66)
-    insert_num(sorted_list, -5)
-    insert_num(sorted_list, -10)
+    insert_num(sorted_list.head, -112)
+    insert_num(sorted_list.head, 66)
+    insert_num(sorted_list.head, -5)
+    insert_num(sorted_list.head, -10)
     print('Sorted Linked List After Insertions 15, -1, 22, -10: ')
     sorted_list.print_list()
 
