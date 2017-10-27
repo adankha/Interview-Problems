@@ -8,3 +8,6 @@ I am going to put a stronger emphasis on the following topics: <br />
     * Algorithms <br />
 
 All solutions and explanations are created by Ashour Dankha (unless written otherwise). If there is an error in my explanation or code, please let me know! :)
+
+
+DISCLAIMER: The problems on this repo are problems I feel would be good interview problems. Unless granted permission to post a companies interview question, no question on here has been provided without any special permission first.
